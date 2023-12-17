@@ -31,7 +31,8 @@
 
             // Retrieve data from URL parameters
             const urlParams = new URLSearchParams(window.location.search);
-            const data = urlParams.get('data'); // Replace 'data' with your actual parameter name
+            console.log('Received url parameters: ', urlParams);
+            const data = urlParams.get('data');
 
             // Display the data
             const dataDisplayElement = document.getElementById('dataDisplay');
