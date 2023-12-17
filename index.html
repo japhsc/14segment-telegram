@@ -34,7 +34,9 @@
             }).onClick(Telegram.WebApp.close);
         },
         sendMessage(message) {
+            console.log('Sending message: ', message);
             Telegram.WebApp.sendData(message);
+            console.log('Message sent');
         },
     };
 
