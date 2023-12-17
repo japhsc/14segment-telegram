@@ -16,6 +16,7 @@
 <body style="visibility: hidden;">
 
 <section>
+    <p id="dataDisplay"></p>
     <button onclick="SegmentDisplayApp.sendMessage('Hello World!');">Send «Hello World!»</button>
 </section>
 
@@ -27,6 +28,19 @@
 
         init(options) {
             document.body.style.visibility = '';
+
+            // Retrieve data from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const data = urlParams.get('data'); // Replace 'data' with your actual parameter name
+
+            // Display the data
+            const dataDisplayElement = document.getElementById('dataDisplay');
+            if (data) {
+                dataDisplayElement.textContent = 'Received data: ' + data;
+            } else {
+                dataDisplayElement.textContent = 'No data received.';
+            }
+
             Telegram.WebApp.ready();
             Telegram.WebApp.MainButton.setParams({
                 text      : 'CLOSE WEBVIEW',
