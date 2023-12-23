@@ -15,69 +15,75 @@
 
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <script src="script.js" defer></script>
 </head>
 
 <body style="visibility: hidden;">
 
-    <section>
+    <section class="container mt-4">
         <h1>14-Segment-Anzeige Steuerung</h1>
 
-        <div>
+        <div class="my-3">
             <h3>Effekt</h3>
-            <input type="radio" id="text" name="effect" value="text" checked onchange="onEffectChange()">
-            <label for="text">Text - Text anzeigen, so viel wie passt</label><br>
-
-            <input type="radio" id="zeit" name="effect" value="zeit" onchange="onEffectChange()">
-            <label for="zeit">Zeit - Zeigt die aktuelle Uhrzeit an</label><br>
-
-            <input type="radio" id="uhr" name="effect" value="uhr" onchange="onEffectChange()">
-            <label for="uhr">Uhr - Aktualisierende Uhrzeit</label><br>
-
-            <input type="radio" id="countdown" name="effect" value="countdown" onchange="onEffectChange()">
-            <label for="countdown">Countdown - </label><br>
-
-            <input type="radio" id="random" name="effect" value="random" onchange="onEffectChange()">
-            <label for="random">Random - Zufällige Segmente</label><br>
-            <br>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" name="effect" id="text" value="text" checked
+                    onchange="onEffectChange()">
+                <label class="form-check-label" for="text">Text - Text anzeigen, so viel wie passt</label>
+            </div>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" name="effect" id="zeit" value="zeit"
+                    onchange="onEffectChange()">
+                <label class="form-check-label" for="zeit">Zeit - Zeigt die aktuelle Uhrzeit an</label>
+            </div>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" name="effect" id="uhr" value="uhr"
+                    onchange="onEffectChange()">
+                <label class="form-check-label" for="uhr">Uhr - Aktualisierende Uhrzeit</label>
+            </div>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" name="effect" id="countdown" value="countdown"
+                    onchange="onEffectChange()">
+                <label class="form-check-label" for="countdown">Countdown</label>
+            </div>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" name="effect" id="random" value="random"
+                    onchange="onEffectChange()">
+                <label class="form-check-label" for="random">Random - Zufällige Segmente</label>
+            </div>
         </div>
 
-        <div id="displayTextDiv">
+        <div id="displayTextDiv" class="my-3">
             <h3>Text</h3>
-            <input type="text" id="displayText" placeholder="Enter text here"><br>
-            <br>
+            <input type="text" class="form-control" id="displayText" placeholder="Enter text here">
         </div>
 
-        <div>
+        <div class="my-3">
             <h3>Farbe</h3>
-            <input type="color" id="colorPicker" value="#ff0000"> Color<br>
-            <br>
+            <input type="color" id="colorPicker" value="#ff0000" class="form-control" style="width: 60px;">
         </div>
 
-        <div id="displayModeDiv">
+        <div id="displayModeDiv" class="my-3">
             <h3>Anzeigeart</h3>
-            <input type="radio" id="static" name="display_mode" value="static" checked>
-            <label for="static">Statisch</label><br>
-
-            <input type="radio" id="roll" name="display_mode" value="roll">
-            <label for="roll">Rollender Text</label><br>
-
-            <input type="radio" id="blink" name="display_mode" value="blink">
-            <label for="blink">Blinkender Text</label><br>
-            <br>
-            <br>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" id="static" name="display_mode" value="static" checked>
+                <label class="form-check-label" for="static">Statisch</label>
+            </div>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" id="roll" name="display_mode" value="roll">
+                <label class="form-check-label" for="roll">Rollender Text</label>
+            </div>
+            <div class="form-check py-2">
+                <input class="form-check-input" type="radio" id="blink" name="display_mode" value="blink">
+                <label class="form-check-label" for="blink">Blinkender Text</label>
+            </div>
         </div>
 
-        <button onclick="SegmentDisplayApp.handleSendDataClick()">Send Kommando</button>
-
-        <br>
-        <br>
-        <br>
-
-        <p id="dataDisplay"></p>
-
+        <button class="btn btn-primary" onclick="SegmentDisplayApp.handleSendDataClick()">Send Kommando</button>
+        
+        <!-- <p id="dataDisplay" class="mt-3"></p> -->
     </section>
+
 </body>
 
 </html>
