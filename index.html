@@ -1,61 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="MobileOptimized" content="176"/>
-    <meta name="HandheldFriendly" content="True"/>
-    <meta name="robots" content="noindex,nofollow"/>
-    <title></title>
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="MobileOptimized" content="176" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="robots" content="noindex,nofollow" />
+
+    <title>14-Segment-Anzeige Steuerung</title>
+
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="script.js" defer></script>
 </head>
 
 <body style="visibility: hidden;">
 
-<section>
-    <p id="dataDisplay"></p>
-    <button onclick="SegmentDisplayApp.sendMessage('Hello World!');">Send «Hello World!»</button>
-</section>
+    <section>
+        <h1>14-Segment-Anzeige Steuerung</h1>
 
-<script type="application/javascript">
+        <div>
+            <h3>Effekt</h3>
+            <input type="radio" id="text" name="effect" value="text" checked onchange="onEffectChange()">
+            <label for="text">Text - Text anzeigen, so viel wie passt</label><br>
 
-    const SegmentDisplayApp = {
-        initData      : Telegram.WebApp.initData || '',
-        MainButton    : Telegram.WebApp.MainButton,
+            <input type="radio" id="zeit" name="effect" value="zeit" onchange="onEffectChange()">
+            <label for="zeit">Zeit - Zeigt die aktuelle Uhrzeit an</label><br>
 
-        init(options) {
-            document.body.style.visibility = '';
+            <input type="radio" id="uhr" name="effect" value="uhr" onchange="onEffectChange()">
+            <label for="uhr">Uhr - Aktualisierende Uhrzeit</label><br>
 
-            // Retrieve data from URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            console.log('Received url parameters: ', urlParams);
-            const data = urlParams.get('data');
+            <input type="radio" id="countdown" name="effect" value="countdown" onchange="onEffectChange()">
+            <label for="countdown">Countdown - </label><br>
 
-            // Display the data
-            const dataDisplayElement = document.getElementById('dataDisplay');
-            if (data) {
-                dataDisplayElement.textContent = 'Received data: ' + data;
-            } else {
-                dataDisplayElement.textContent = 'No data received.';
-            }
+            <input type="radio" id="random" name="effect" value="random" onchange="onEffectChange()">
+            <label for="random">Random - Zufällige Segmente</label><br>
+            <br>
+        </div>
 
-            Telegram.WebApp.ready();
-            Telegram.WebApp.MainButton.setParams({
-                text      : 'CLOSE WEBVIEW',
-                is_visible: true
-            }).onClick(Telegram.WebApp.close);
-        },
-        sendMessage(message) {
-            console.log('Sending message: ', message);
-            Telegram.WebApp.sendData(message);
-            console.log('Message sent');
-        },
-    };
+        <div id="displayTextDiv">
+            <h3>Text</h3>
+            <input type="text" id="displayText" placeholder="Enter text here"><br>
+            <br>
+        </div>
 
-    SegmentDisplayApp.init();
-</script>
+        <div>
+            <h3>Farbe</h3>
+            <input type="color" id="colorPicker" value="#ff0000"> Color<br>
+            <br>
+        </div>
+
+        <div id="displayModeDiv">
+            <h3>Anzeigeart</h3>
+            <input type="radio" id="static" name="display_mode" value="static" checked>
+            <label for="static">Statisch</label><br>
+
+            <input type="radio" id="roll" name="display_mode" value="roll">
+            <label for="roll">Rollender Text</label><br>
+
+            <input type="radio" id="blink" name="display_mode" value="blink">
+            <label for="blink">Blinkender Text</label><br>
+            <br>
+            <br>
+        </div>
+
+        <button onclick="SegmentDisplayApp.handleSendDataClick()">Send Kommando</button>
+
+        <br>
+        <br>
+        <br>
+
+        <p id="dataDisplay"></p>
+
+    </section>
 </body>
+
 </html>
