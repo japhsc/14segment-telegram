@@ -25,7 +25,7 @@
         <h1>14-Segment-Anzeige Steuerung</h1>
 
         <div class="my-3">
-            <h3>Effekt</h3>
+            <h2>Effekt</h2>
             <div class="form-check py-2">
                 <input class="form-check-input" type="radio" name="effect" id="text" value="text" checked
                     onchange="onEffectChange()">
@@ -58,16 +58,11 @@
             <input type="text" class="form-control" id="displayText" placeholder="Enter text here">
         </div>
 
-        <div class="my-3">
-            <h3>Farbe</h3>
-            <input type="color" id="colorPicker" value="#ff0000" class="form-control" style="width: 60px;">
-        </div>
-
         <div id="displayModeDiv" class="my-3">
-            <h3>Anzeigeart</h3>
+            <h4>Anzeigeart</h4>
             <div class="form-check py-2">
                 <input class="form-check-input" type="radio" id="static" name="display_mode" value="static" checked>
-                <label class="form-check-label" for="static">Statisch</label>
+                <label class="form-check-label" for="static">Statischer Text</label>
             </div>
             <div class="form-check py-2">
                 <input class="form-check-input" type="radio" id="roll" name="display_mode" value="roll">
@@ -77,6 +72,11 @@
                 <input class="form-check-input" type="radio" id="blink" name="display_mode" value="blink">
                 <label class="form-check-label" for="blink">Blinkender Text</label>
             </div>
+        </div>
+
+        <div class="my-3">
+            <h3>Farbe</h3>
+            <input type="color" id="colorPicker" value="#ff0000" class="form-control" style="width: 60px;">
         </div>
 
         <button class="btn btn-primary" onclick="SegmentDisplayApp.handleSendDataClick()">Send Kommando</button>
