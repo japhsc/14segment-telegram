@@ -49,7 +49,7 @@ const SegmentDisplayApp = {
 
     const displayText = document.getElementById("displayText").value;
     let displayTextCommand =
-      hasText(effect) && displayText ? ` /text=${displayText}` : "";
+      hasText(effect) && displayText ? ` ${displayText}` : "";
 
     const command =
       `/${effect}` +
