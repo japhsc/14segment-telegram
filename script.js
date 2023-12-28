@@ -32,7 +32,7 @@ const SegmentDisplayApp = {
   },
 
   handleSendDataClick() {
-    const effect = document.querySelector('input[name="effect"]:checked').value;
+    const effect = 'text';
 
     const color = document.getElementById("colorPicker").value;
     const redCommand = ` /red=${hexToInt(color.substring(1, 3))}`;
