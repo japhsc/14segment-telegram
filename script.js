@@ -1,7 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
   SegmentDisplayApp.init();
-  updateTextDisplayVisibility();
-  updateDisplayModeVisibility();
 });
 
 const SegmentDisplayApp = {
@@ -32,6 +30,13 @@ const SegmentDisplayApp = {
   },
 
   handleSendDataClick() {
+    const displayText = document.getElementById("displayText").value.trim();
+    
+    if (!displayText) {
+        alert("Error: Text field cannot be empty!");
+        return;
+    }
+
     const effect = 'text';
 
     const color = document.getElementById("colorPicker").value;
@@ -39,17 +44,10 @@ const SegmentDisplayApp = {
     const greenCommand = ` /green=${hexToInt(color.substring(3, 5))}`;
     const blueCommand = ` /blue=${hexToInt(color.substring(5, 7))}`;
 
-    let displayModeCommand = "";
-    if (hasDisplayMode(effect)) {
-      const displayMode = document.querySelector(
-        'input[name="display_mode"]:checked'
-      ).value;
-      displayModeCommand = ` /${displayMode}`;
-    }
+    const displayMode = document.querySelector('input[name="display_mode"]:checked').value;
+    const displayModeCommand = ` /${displayMode}`;
 
-    const displayText = document.getElementById("displayText").value;
-    let displayTextCommand =
-      hasText(effect) && displayText ? ` ${displayText}` : "";
+    const displayTextCommand = ` ${displayText}`;
 
     const command =
       `/${effect}` +
@@ -64,31 +62,6 @@ const SegmentDisplayApp = {
   },
 };
 
-function onEffectChange() {
-  updateTextDisplayVisibility();
-  updateDisplayModeVisibility();
-}
-
-function updateTextDisplayVisibility() {
-  const selectedEffect = document.querySelector(
-    'input[name="effect"]:checked'
-  ).value;
-  const displayTextDiv = document.getElementById("displayTextDiv");
-
-  displayTextDiv.style.display = hasText(selectedEffect) ? "block" : "none";
-}
-
-function updateDisplayModeVisibility() {
-  const selectedEffect = document.querySelector(
-    'input[name="effect"]:checked'
-  ).value;
-  const displayModeDiv = document.getElementById("displayModeDiv");
-
-  displayModeDiv.style.display = hasDisplayMode(selectedEffect)
-    ? "block"
-    : "none";
-}
-
 function hexToInt(hexString) {
   let intValue = parseInt(hexString, 16);
 
@@ -102,10 +75,3 @@ function hexToInt(hexString) {
   return intValue;
 }
 
-function hasText(effect) {
-  return effect === "text";
-}
-
-function hasDisplayMode(effect) {
-  return effect === "text" || effect === "zeit";
-}
