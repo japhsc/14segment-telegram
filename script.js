@@ -2,12 +2,6 @@ document.addEventListener("DOMContentLoaded", () => {
   SegmentDisplayApp.init();
 });
 
-document.body.addEventListener('click', function(e) {
-  if (document.activeElement.tagName === 'INPUT') {
-      document.activeElement.blur();
-  }
-});
-
 const SegmentDisplayApp = {
   initData: Telegram.WebApp.initData || "",
   MainButton: Telegram.WebApp.MainButton,
