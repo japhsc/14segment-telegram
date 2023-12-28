@@ -54,25 +54,31 @@
             <input type="text" class="form-control" id="displayText" placeholder="Enter text here" autocapitalize="characters">
         </div>
 
-        <div id="displayModeDiv" class="my-3">
-            <h4>Anzeigeart</h4>
-            <div class="form-check py-2">
-                <input class="form-check-input" type="radio" id="static" name="display_mode" value="static" checked>
-                <label class="form-check-label" for="static">Statischer Text</label>
+        <div class="row">
+            <div class="col-6">
+                <div id="displayModeDiv" class="my-3">
+                    <h4>Anzeigeart</h4>
+                    <div class="form-check py-2">
+                        <input class="form-check-input" type="radio" id="static" name="display_mode" value="static" checked>
+                        <label class="form-check-label" for="static">Statischer Text</label>
+                    </div>
+                    <div class="form-check py-2">
+                        <input class="form-check-input" type="radio" id="roll" name="display_mode" value="roll">
+                        <label class="form-check-label" for="roll">Rollender Text</label>
+                    </div>
+                    <div class="form-check py-2">
+                        <input class="form-check-input" type="radio" id="blink" name="display_mode" value="blink">
+                        <label class="form-check-label" for="blink">Blinkender Text</label>
+                    </div>
+                </div>
             </div>
-            <div class="form-check py-2">
-                <input class="form-check-input" type="radio" id="roll" name="display_mode" value="roll">
-                <label class="form-check-label" for="roll">Rollender Text</label>
-            </div>
-            <div class="form-check py-2">
-                <input class="form-check-input" type="radio" id="blink" name="display_mode" value="blink">
-                <label class="form-check-label" for="blink">Blinkender Text</label>
-            </div>
-        </div>
 
-        <div class="my-3">
-            <h3>Farbe</h3>
-            <input type="color" id="colorPicker" value="#ff0000" class="form-control" style="width: 60px;">
+            <div class="col-6">
+                <div class="my-3">
+                    <h3>Farbe</h3>
+                    <input type="color" id="colorPicker" value="#ff0000" class="form-control" style="width: 60px;">
+                </div>
+            </div>
         </div>
 
         <div class="d-flex justify-content-end my-3">
