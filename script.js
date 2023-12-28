@@ -9,19 +9,6 @@ const SegmentDisplayApp = {
   init() {
     document.body.style.visibility = "";
 
-    // Retrieve data from URL parameters
-    const urlParams = new URLSearchParams(window.location.search);
-    console.log("Received url parameters: ", urlParams);
-    const data = urlParams.get("data");
-
-    // Display the data
-    const dataDisplayElement = document.getElementById("dataDisplay");
-    if (data) {
-      dataDisplayElement.textContent = "Received data: " + data;
-    } else {
-      dataDisplayElement.textContent = "No data received.";
-    }
-
     Telegram.WebApp.ready();
     Telegram.WebApp.MainButton.setParams({
       text: "CLOSE WEBVIEW",
