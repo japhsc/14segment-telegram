@@ -45,7 +45,7 @@ const SegmentDisplayApp = {
     const blueCommand = ` /blue=${hexToInt(color.substring(5, 7))}`;
 
     const displayMode = document.querySelector('input[name="display_mode"]:checked').value;
-    const displayModeCommand = ` /${displayMode}`;
+    const displayModeCommand = displayMode !== 'static' ? ` /${displayMode}` : "";
 
     const displayTextCommand = ` ${displayText}`;
 
