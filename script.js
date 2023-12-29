@@ -17,7 +17,7 @@ const SegmentDisplayApp = {
   },
 
   handleSendDataClick() {
-    const displayText = document.getElementById("displayText").value.trim();
+    const displayText = document.getElementById("displayText").value;
     
     if (!displayText) {
         alert("Error: Text field cannot be empty!");
