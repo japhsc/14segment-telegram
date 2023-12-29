@@ -35,7 +35,9 @@ const SegmentDisplayApp = {
     const displayModeCommand = displayMode !== 'static' ? ` /${displayMode}` : "";
 
     let countCommand = '';
-    if (displayMode === 'roll' || displayMode === 'blink') {
+    if (displayMode === 'static') {
+      countCommand = ' /period=7000';
+    }else if (displayMode === 'roll' || displayMode === 'blink') {
       countCommand = ' /count=5';
     }
 
