@@ -34,6 +34,11 @@ const SegmentDisplayApp = {
     const displayMode = document.querySelector('input[name="display_mode"]:checked').value;
     const displayModeCommand = displayMode !== 'static' ? ` /${displayMode}` : "";
 
+    let countCommand = '';
+    if (displayMode === 'roll' || displayMode === 'blink') {
+      countCommand = ' /count=5';
+    }
+
     const displayTextCommand = ` ${displayText}`;
 
     const command =
@@ -42,6 +47,7 @@ const SegmentDisplayApp = {
       redCommand +
       greenCommand +
       blueCommand +
+      countCommand +
       displayTextCommand;
 
     console.log("Sending data: ", command);
