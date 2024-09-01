@@ -57,10 +57,12 @@ const SegmentDisplayApp = {
     let countCommand = "";
     if (displayMode === "static") {
       countCommand = " /period=10000";
-    } else if (displayMode === "roll") {
-      countCommand = " /count=3";
-    } else if (displayMode === "blink") {
-      countCommand = " /count=10";
+    } else {
+      if ((displayMode === "roll") || (displayMode === "bounce")) {
+        countCommand = " /count=3";
+      } else if (displayMode === "blink") {
+        countCommand = " /count=10";
+      }
     }
 
     const displayTextCommand = ` ${displayText}`;
