@@ -55,6 +55,7 @@ const SegmentDisplayApp = {
       displayMode !== "static" ? ` /${displayMode}` : "";
 
     let countCommand = "";
+    /*
     if (displayMode === "static") {
       countCommand = " /period=10000";
     } else {
@@ -63,7 +64,9 @@ const SegmentDisplayApp = {
       } else if (displayMode === "blink") {
         countCommand = " /count=10";
       }
+      countCommand += " /period=100";
     }
+    */
 
     const displayTextCommand = ` ${displayText}`;
 
